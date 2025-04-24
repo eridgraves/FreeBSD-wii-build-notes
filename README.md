@@ -8,7 +8,7 @@ Notes from building FreeBSD for Wii, on a Linux Host.
 ## Build Process
 1. Clone FreeBSD Sources - `git clone -b releng/14.2 https://git.freebsd.org/src.git`
 2. Ensure build prerequisites are set/known:
-   - llvm is installed (including ld).
+   - llvm is installed (including ld). (I found this was the most important step to get right, as I ran into standard library errors due to incorrect install of prebuilt llvm)
    - Make a freebsd object directory.
    - Wii HW is 32 bit powerpc architecture.
 3. Run the build using the **make.py** script - `MAKEOBJDIRPREFIX=$HOME/freebsd-obj ./tools/build/make.py buildworld KERNCONF=WII TARGET=powerpc TARGET_ARCH=powerpc --cross-bindir=/usr/lib/llvm-14/bin`
